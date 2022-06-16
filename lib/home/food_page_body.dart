@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:storee/utils/colors.dart';
@@ -32,7 +34,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   // dispose to remove from memory to prevent memory leaks
   @override
   void dispose() {
-    // super.dispose();
+    super.dispose();
     pageController.dispose();
   }
 
@@ -40,6 +42,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
   Widget build(BuildContext context) {
     return Column(
       children: [
+        // SLIDER
         Container(
           height: Dimensions.pageView,
           child: PageView.builder(
@@ -50,6 +53,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
             },
           ),
         ),
+        // DOTS
         DotsIndicator(
           dotsCount: 5,
           position: _currPageValue,
@@ -61,7 +65,119 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               borderRadius: BorderRadius.circular(5.0),
             ),
           ),
-        )
+        ),
+        // POPULAR TEXT
+        SizedBox(
+          height: Dimensions.height30,
+        ),
+        Container(
+          margin: EdgeInsets.only(left: Dimensions.width30),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.end,
+            children: [
+              BigText(text: "Popular"),
+              SizedBox(
+                width: Dimensions.width10,
+              ),
+              Container(
+                margin: const EdgeInsets.only(bottom: 3),
+                child: BigText(
+                  text: ".",
+                  color: Colors.black26,
+                ),
+              ),
+              SizedBox(
+                width: Dimensions.width10,
+              ),
+              Container(
+                margin: const EdgeInsets.only(bottom: 2),
+                child: SmallText(text: "Food Pairing"),
+              )
+            ],
+          ),
+        ),
+        // LIST
+        SizedBox(
+          height: Dimensions.height10,
+        ),
+        Container(
+          height: 900,
+          child: ListView.builder(
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemCount: 10,
+            itemBuilder: (context, index) {
+              return Container(
+                margin: EdgeInsets.only(
+                  left: Dimensions.width20,
+                  right: Dimensions.width20,
+                  bottom: Dimensions.height20,
+                ),
+                child: Row(children: [
+                  // Image Section
+                  Container(
+                    width: Dimensions.listViewImgSize,
+                    height: Dimensions.listViewImgSize,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(Dimensions.radius20),
+                      image: const DecorationImage(
+                        image: AssetImage("assets/images/food_pairing.png"),
+                        fit: BoxFit.cover,
+                      ),
+                      color: const Color.fromARGB(255, 0, 211, 214),
+                    ),
+                  ),
+                  // Text Container
+                  Expanded(
+                    child: Container(
+                      height: Dimensions.listViewImgSize,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(Dimensions.radius20),
+                          bottomRight: Radius.circular(Dimensions.radius20),
+                        ),
+                        color: Colors.white,
+                      ),
+                      child: Padding(
+                        padding: EdgeInsets.only(
+                          left: Dimensions.width10,
+                          right: Dimensions.width10,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            BigText(text: "Nutritious Munanasi In China "),
+                            SizedBox(height: Dimensions.height10),
+                            SmallText(text: "Lorem Ipsum Dfdfdf Efgfgfg"),
+                            SizedBox(height: Dimensions.height10),
+                            Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: const [
+                                  IconNTextWidget(
+                                      icon: Icons.circle_sharp,
+                                      text: "Normal",
+                                      iconColor: AppColors.iconColor1),
+                                  IconNTextWidget(
+                                      icon: Icons.location_on,
+                                      text: "1.7km",
+                                      iconColor: AppColors.mainColor),
+                                  IconNTextWidget(
+                                      icon: Icons.access_time_rounded,
+                                      text: "32min",
+                                      iconColor: AppColors.iconColor2),
+                                ]),
+                          ],
+                        ),
+                      ),
+                    ),
+                  )
+                ]),
+              );
+            },
+          ),
+        ),
       ],
     );
   }
@@ -113,7 +229,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               color: index.isEven
                   ? const Color(0xFF69c5df)
                   : const Color(0xFF9294CC),
-              image: DecorationImage(
+              image: const DecorationImage(
                 fit: BoxFit.cover,
                 image: AssetImage("assets/image/food1.png"),
               ),
