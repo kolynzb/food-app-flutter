@@ -1,22 +1,37 @@
 import 'package:get/get.dart';
 
+// scaling factor = 844 /x
 class Dimensions {
   static double screenHeight = Get.context!.height;
-  static double screenWidth = Get.context!.height;
+  static double screenWidth = Get.context!.width;
 
-// 844/220 we know that this has to be around 220
-
-  static double pageView = screenHeight / 2.64;
+//
+  static double pageView = screenHeight / 2.64; // 220
   static double pageViewContainer = screenHeight / 3.84;
-  // 140
-  static double pageViewTextContainer = screenHeight / 6.03;
+  static double pageViewTextContainer = screenHeight / 6.03; // 140
 
-// scaling factor = 844 /10
+// Dyanamic Height Padding and Margin
   static double height10 = screenHeight / 84.4;
   static double height15 = screenHeight / 56.27;
   static double height20 = screenHeight / 42.2;
+  static double height30 = screenHeight / 28.13;
+  static double height45 = screenHeight / 18.76;
 
+// Dyanamic Width Padding and Margin
+  static double width10 = screenHeight / 84.4;
+  static double width15 = screenHeight / 56.27;
+  static double width20 = screenHeight / 42.2;
+  static double width30 = screenHeight / 28.13;
+  static double width45 = screenHeight / 18.76;
+
+// Dynamic Font Size
   static double font20 = screenHeight / 42.2;
+
+// Dyanamic Border Radius
+  static double radius15 = screenHeight / 56.27;
   static double radius20 = screenHeight / 42.2;
   static double radius30 = screenHeight / 28.13;
+
+// Dynamic Icon Size
+  static double icon24 = screenHeight / 35.17;
 }
