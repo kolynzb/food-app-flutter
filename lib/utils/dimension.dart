@@ -33,9 +33,14 @@ class Dimensions {
   static double radius30 = screenHeight / 28.13;
 
 // Dynamic Icon Size
+  static double icon16 = screenHeight / 52.27;
   static double icon24 = screenHeight / 35.17;
 
 // Dynamic List View Size
-  static double listViewImgSize = screenWidth / 3.25; //120 
+  static double listViewImgSize = screenWidth / 3.25; //120
   static double listViewTextContSize = screenWidth / 3.9; // 390
+
+// Popular Food Details
+  static double popularFoodDetailImgSize = screenHeight / 2.41; // 350
+
 }

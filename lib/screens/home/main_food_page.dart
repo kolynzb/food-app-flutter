@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:storee/home/food_page_body.dart';
+import 'package:storee/screens/home/food_page_body.dart';
 import 'package:storee/utils/colors.dart';
 import 'package:storee/utils/dimension.dart';
 import 'package:storee/widgets/big_text.dart';

@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:storee/utils/colors.dart';
@@ -100,83 +98,79 @@ class _FoodPageBodyState extends State<FoodPageBody> {
         SizedBox(
           height: Dimensions.height10,
         ),
-        Container(
-          height: 900,
-          child: ListView.builder(
-            physics: const NeverScrollableScrollPhysics(),
-            shrinkWrap: true,
-            itemCount: 10,
-            itemBuilder: (context, index) {
-              return Container(
-                margin: EdgeInsets.only(
-                  left: Dimensions.width20,
-                  right: Dimensions.width20,
-                  bottom: Dimensions.height20,
+        ListView.builder(
+          physics: const NeverScrollableScrollPhysics(),
+          shrinkWrap: true,
+          itemCount: 10,
+          itemBuilder: (context, index) {
+            return Container(
+              margin: EdgeInsets.only(
+                left: Dimensions.width20,
+                right: Dimensions.width20,
+                bottom: Dimensions.height20,
+              ),
+              child: Row(children: [
+                // Image Section
+                Container(
+                  width: Dimensions.listViewImgSize,
+                  height: Dimensions.listViewImgSize,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(Dimensions.radius20),
+                    image: const DecorationImage(
+                      image: AssetImage("assets/images/food_pairing.png"),
+                      fit: BoxFit.cover,
+                    ),
+                    color: const Color.fromARGB(255, 0, 211, 214),
+                  ),
                 ),
-                child: Row(children: [
-                  // Image Section
-                  Container(
-                    width: Dimensions.listViewImgSize,
-                    height: Dimensions.listViewImgSize,
+                // Text Container
+                Expanded(
+                  child: Container(
+                    height: Dimensions.listViewTextContSize,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(Dimensions.radius20),
-                      image: const DecorationImage(
-                        image: AssetImage("assets/images/food_pairing.png"),
-                        fit: BoxFit.cover,
+                      borderRadius: BorderRadius.only(
+                        topRight: Radius.circular(Dimensions.radius20),
+                        bottomRight: Radius.circular(Dimensions.radius20),
                       ),
-                      color: const Color.fromARGB(255, 0, 211, 214),
+                      color: Colors.white,
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.only(
+                        left: Dimensions.width10,
+                        right: Dimensions.width10,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          BigText(text: "Nutritious Munanasi In China "),
+                          SizedBox(height: Dimensions.height10),
+                          SmallText(text: "Lorem Ipsum Dfdfdf Efgfgfg"),
+                          SizedBox(height: Dimensions.height10),
+                          Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: const [
+                                IconNTextWidget(
+                                    icon: Icons.circle_sharp,
+                                    text: "Normal",
+                                    iconColor: AppColors.iconColor1),
+                                IconNTextWidget(
+                                    icon: Icons.location_on,
+                                    text: "1.7km",
+                                    iconColor: AppColors.mainColor),
+                                IconNTextWidget(
+                                    icon: Icons.access_time_rounded,
+                                    text: "32min",
+                                    iconColor: AppColors.iconColor2),
+                              ]),
+                        ],
+                      ),
                     ),
                   ),
-                  // Text Container
-                  Expanded(
-                    child: Container(
-                      height: Dimensions.listViewImgSize,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.only(
-                          topRight: Radius.circular(Dimensions.radius20),
-                          bottomRight: Radius.circular(Dimensions.radius20),
-                        ),
-                        color: Colors.white,
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.only(
-                          left: Dimensions.width10,
-                          right: Dimensions.width10,
-                        ),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            BigText(text: "Nutritious Munanasi In China "),
-                            SizedBox(height: Dimensions.height10),
-                            SmallText(text: "Lorem Ipsum Dfdfdf Efgfgfg"),
-                            SizedBox(height: Dimensions.height10),
-                            Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                children: const [
-                                  IconNTextWidget(
-                                      icon: Icons.circle_sharp,
-                                      text: "Normal",
-                                      iconColor: AppColors.iconColor1),
-                                  IconNTextWidget(
-                                      icon: Icons.location_on,
-                                      text: "1.7km",
-                                      iconColor: AppColors.mainColor),
-                                  IconNTextWidget(
-                                      icon: Icons.access_time_rounded,
-                                      text: "32min",
-                                      iconColor: AppColors.iconColor2),
-                                ]),
-                          ],
-                        ),
-                      ),
-                    ),
-                  )
-                ]),
-              );
-            },
-          ),
+                )
+              ]),
+            );
+          },
         ),
       ],
     );
