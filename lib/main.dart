@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:storee/screens/food/popular_food_detal.dart';
 
-import 'screens/home/main_food_page.dart';
-
 void main() {
   runApp(const MyApp());
 }

@@ -54,7 +54,7 @@ class PopularFoodDetail extends StatelessWidget {
               padding: EdgeInsets.only(
                 left: Dimensions.width20,
                 right: Dimensions.width20,
-                top: Dimensions.popularFoodDetailImgSize,
+                // top: Dimensions.popularFoodDetailImgSize,
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Dimensions.radius20),
@@ -88,25 +88,60 @@ class PopularFoodDetail extends StatelessWidget {
                   ),
                   SizedBox(height: Dimensions.height20),
                   Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: const [
-                        IconNTextWidget(
-                            icon: Icons.circle_sharp,
-                            text: "Normal",
-                            iconColor: AppColors.iconColor1),
-                        IconNTextWidget(
-                            icon: Icons.location_on,
-                            text: "1.7km",
-                            iconColor: AppColors.mainColor),
-                        IconNTextWidget(
-                            icon: Icons.access_time_rounded,
-                            text: "32min",
-                            iconColor: AppColors.iconColor2),
-                      ]),
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const <Widget>[
+                      IconNTextWidget(
+                          icon: Icons.circle_sharp,
+                          text: "Normal",
+                          iconColor: AppColors.iconColor1),
+                      IconNTextWidget(
+                          icon: Icons.location_on,
+                          text: "1.7km",
+                          iconColor: AppColors.mainColor),
+                      IconNTextWidget(
+                          icon: Icons.access_time_rounded,
+                          text: "32min",
+                          iconColor: AppColors.iconColor2),
+                    ],
+                  ),
+                  SizedBox(height: Dimensions.height20),
+                  BigText(text: "Introduce"),
+                  SizedBox(height: Dimensions.height20),
+                  const Text(
+                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quia inventore et eos consequuntur incidunt explicabo cupiditate animi in repellendus laudantium, odio veniam. Commodi labore error dolores a obcaecati sint.",
+                    overflow: TextOverflow.ellipsis,
+                  ),
+                  SizedBox(
+                    width: Dimensions.height10,
+                  ),
+                  Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        SmallText(
+                            text: "Show more", color: AppColors.mainColor),
+                        SizedBox(width: Dimensions.width10),
+                        const Icon(Icons.arrow_drop_down_outlined,
+                            color: AppColors.mainColor),
+                      ])
                 ],
               ),
             ),
           ),
+          Positioned(
+            bottom: 0,
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 10),
+              child: Row(
+                children: <Widget>[
+                  // Button1
+
+                  // Button2
+                  ElevatedButton(
+                      onPressed: () {}, child: const Text("Add To Cart"))
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );
