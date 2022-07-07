@@ -4,6 +4,7 @@ import 'package:storee/utils/dimension.dart';
 import 'package:storee/widgets/app_Colum_desc.dart';
 import 'package:storee/widgets/big_text.dart';
 import 'package:storee/widgets/custom_rounded_icon.dart';
+import 'package:storee/widgets/expandable_text.dart';
 import 'package:storee/widgets/icon_n_text_widget.dart';
 import 'package:storee/widgets/small_text.dart';
 
@@ -16,7 +17,7 @@ class PopularFoodDetail extends StatelessWidget {
       backgroundColor: Colors.white,
       body: Stack(
         children: [
-          // Image
+          //Background Image
           Positioned(
             left: 0,
             right: 0,
@@ -32,6 +33,7 @@ class PopularFoodDetail extends StatelessWidget {
               ),
             ),
           ),
+          // Icons nav
           Positioned(
             top: Dimensions.height45,
             left: Dimensions.width20,
@@ -48,6 +50,7 @@ class PopularFoodDetail extends StatelessWidget {
               ],
             ),
           ),
+          //  Intro sect
           Positioned(
             left: 0,
             right: 0,
@@ -67,37 +70,24 @@ class PopularFoodDetail extends StatelessWidget {
                 color: Colors.white,
               ),
               child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: <Widget>[
-                    const AppColumnFoodDesc(Title: "Spiced Kikomado"),
-                    SizedBox(height: Dimensions.height20),
-                    BigText(text: "Introduce"),
-                    SizedBox(height: Dimensions.height20),
-                    const Text(
-                      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quia inventore et eos consequuntur incidunt explicabo cupiditate animi in repellendus laudantium, odio veniam. Commodi labore error dolores a obcaecati sint Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quia inventore et eos consequuntur incidunt explicabo cupiditate animi in repellendus laudantium, odio veniam. Commodi labore error dolores a obcaecati sint.",
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 3,
-                    ),
-                    SizedBox(
-                      height: Dimensions.height10,
-                    ),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        SmallText(
-                            text: "Show more", color: AppColors.mainColor),
-                        SizedBox(width: Dimensions.width10),
-                        const Icon(Icons.arrow_drop_down_outlined,
-                            color: AppColors.mainColor),
-                      ],
-                    ),
-                  ]),
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  const AppColumnFoodDesc(Title: "Spiced Kikomado"),
+                  SizedBox(height: Dimensions.height20),
+                  BigText(text: "Introduce"),
+                  SizedBox(height: Dimensions.height20),
+                  const ExpandableText(
+                    text:
+                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quia inventore et eos consequuntur incidunt explicabo cupiditate animi in repellendus laudantium, odio veniam. Commodi labore error dolores a obcaecati sint Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quia inventore et eos consequuntur incidunt explicabo cupiditate animi in repellendus laudantium, odio veniam. Commodi labore error dolores a obcaecati sint.",
+                  ),
+                ],
+              ),
             ),
           ),
         ],
       ),
       bottomNavigationBar: Container(
-        height: 120,
+        height: Dimensions.bottomHeightBar,
         padding: EdgeInsets.only(
           top: Dimensions.height30,
           bottom: Dimensions.height30,
