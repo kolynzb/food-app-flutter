@@ -76,9 +76,13 @@ class PopularFoodDetail extends StatelessWidget {
                   SizedBox(height: Dimensions.height20),
                   BigText(text: "Introduce"),
                   SizedBox(height: Dimensions.height20),
-                  const ExpandableText(
-                    text:
-                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quia inventore et eos consequuntur incidunt explicabo cupiditate animi in repellendus laudantium, odio veniam. Commodi labore error dolores a obcaecati sint Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quia inventore et eos consequuntur incidunt explicabo cupiditate animi in repellendus laudantium, odio veniam. Commodi labore error dolores a obcaecati sint.",
+                  const Expanded(
+                    child: SingleChildScrollView(
+                      child: ExpandableText(
+                        text:
+                            "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quia inventore et eos consequuntur incidunt explicabo cupiditate animi in repellendus laudantium, odio veniam. Commodi labore error dolores a obcaecati sint Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quia inventore et eos consequuntur incidunt explicabo cupiditate animi in repellendus laudantium, odio veniam. Commodi labore error dolores a obcaecati sint Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quia inventore et eos consequuntur incidunt explicabo cupiditate animi in repellendus laudantium, odio veniam. Commodi labore error dolores a obcaecati sint Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quia inventore et eos consequuntur incidunt explicabo cupiditate animi in repellendus laudantium, odio veniam. Commodi labore error dolores a obcaecati sint.",
+                      ),
+                    ),
                   ),
                 ],
               ),

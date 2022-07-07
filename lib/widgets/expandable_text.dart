@@ -21,7 +21,7 @@ class _ExpandableTextState extends State<ExpandableText> {
     super.initState();
     if (widget.text.length > textHeight) {
       firstHalf = widget.text.substring(0, textHeight.toInt());
-      firstHalf =
+      secondHalf =
           widget.text.substring(textHeight.toInt() + 1, widget.text.length);
     } else {
       firstHalf = widget.text;
@@ -33,22 +33,35 @@ class _ExpandableTextState extends State<ExpandableText> {
   Widget build(BuildContext context) {
     return Container(
       child: secondHalf.isEmpty
-          ? SmallText(text: firstHalf)
+          ? SmallText(
+              height: 1.8,
+              text: firstHalf,
+              size: Dimensions.font16,
+            )
           : Column(
               children: <Widget>[
                 SmallText(
+                  height: 1.8,
                   text: hiddenText
                       ? (firstHalf + "...")
                       : (firstHalf + secondHalf),
+                  size: Dimensions.font16,
                 ),
                 InkWell(
-                  onTap:(){} ,
+                  onTap: () => setState(() => hiddenText = !hiddenText),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      SmallText(text: "Show more", color: AppColors.mainColor),
-                      SizedBox(width: Dimensions.width10),
-                      const Icon(Icons.arrow_drop_down_outlined,
+                      SmallText(
+                        text: hiddenText ? "Show more" : "Show Less",
+                        color: AppColors.mainColor,
+                        size: Dimensions.font16,
+                      ),
+                      SizedBox(width: Dimensions.width10 / 2),
+                      Icon(
+                          hiddenText
+                              ? Icons.arrow_drop_down_outlined
+                              : Icons.arrow_drop_up,
                           color: AppColors.mainColor),
                     ],
                   ),
