@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:storee/utils/colors.dart';
 import 'package:storee/utils/dimension.dart';
+import 'package:storee/widgets/app_Colum_desc.dart';
 import 'package:storee/widgets/big_text.dart';
 import 'package:storee/widgets/custom_rounded_icon.dart';
 import 'package:storee/widgets/icon_n_text_widget.dart';
@@ -12,6 +13,7 @@ class PopularFoodDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: Stack(
         children: [
           // Image
@@ -49,7 +51,8 @@ class PopularFoodDetail extends StatelessWidget {
           Positioned(
             left: 0,
             right: 0,
-            top: Dimensions.popularFoodDetailImgSize,
+            bottom: 0,
+            top: Dimensions.popularFoodDetailImgSize - 20,
             child: Container(
               padding: EdgeInsets.only(
                 left: Dimensions.width20,
@@ -57,64 +60,28 @@ class PopularFoodDetail extends StatelessWidget {
                 // top: Dimensions.popularFoodDetailImgSize,
               ),
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(Dimensions.radius20),
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(Dimensions.radius20),
+                  topLeft: Radius.circular(Dimensions.radius20),
+                ),
                 color: Colors.white,
               ),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  BigText(
-                    text: "Spiced Kikomando",
-                  ),
-                  SizedBox(
-                    height: Dimensions.height10,
-                  ),
-                  Row(
-                    children: [
-                      Wrap(
-                        children: List.generate(
-                          5,
-                          (index) => const Icon(Icons.star,
-                              color: AppColors.mainColor, size: 15),
-                        ),
-                      ),
-                      const SizedBox(width: 15),
-                      SmallText(text: "4.5"),
-                      const SizedBox(width: 15),
-                      SmallText(text: "1247"),
-                      const SizedBox(width: 15),
-                      SmallText(text: "comments"),
-                    ],
-                  ),
-                  SizedBox(height: Dimensions.height20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const <Widget>[
-                      IconNTextWidget(
-                          icon: Icons.circle_sharp,
-                          text: "Normal",
-                          iconColor: AppColors.iconColor1),
-                      IconNTextWidget(
-                          icon: Icons.location_on,
-                          text: "1.7km",
-                          iconColor: AppColors.mainColor),
-                      IconNTextWidget(
-                          icon: Icons.access_time_rounded,
-                          text: "32min",
-                          iconColor: AppColors.iconColor2),
-                    ],
-                  ),
-                  SizedBox(height: Dimensions.height20),
-                  BigText(text: "Introduce"),
-                  SizedBox(height: Dimensions.height20),
-                  const Text(
-                    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quia inventore et eos consequuntur incidunt explicabo cupiditate animi in repellendus laudantium, odio veniam. Commodi labore error dolores a obcaecati sint.",
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  SizedBox(
-                    width: Dimensions.height10,
-                  ),
-                  Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    const AppColumnFoodDesc(Title: "Spiced Kikomado"),
+                    SizedBox(height: Dimensions.height20),
+                    BigText(text: "Introduce"),
+                    SizedBox(height: Dimensions.height20),
+                    const Text(
+                      "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quia inventore et eos consequuntur incidunt explicabo cupiditate animi in repellendus laudantium, odio veniam. Commodi labore error dolores a obcaecati sint Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus quia inventore et eos consequuntur incidunt explicabo cupiditate animi in repellendus laudantium, odio veniam. Commodi labore error dolores a obcaecati sint.",
+                      overflow: TextOverflow.ellipsis,
+                      maxLines: 3,
+                    ),
+                    SizedBox(
+                      height: Dimensions.height10,
+                    ),
+                    Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
                         SmallText(
@@ -122,27 +89,72 @@ class PopularFoodDetail extends StatelessWidget {
                         SizedBox(width: Dimensions.width10),
                         const Icon(Icons.arrow_drop_down_outlined,
                             color: AppColors.mainColor),
-                      ])
-                ],
-              ),
+                      ],
+                    ),
+                  ]),
             ),
           ),
-          Positioned(
-            bottom: 0,
-            child: Container(
-              padding: const EdgeInsets.symmetric(vertical: 10),
+        ],
+      ),
+      bottomNavigationBar: Container(
+        height: 120,
+        padding: EdgeInsets.only(
+          top: Dimensions.height30,
+          bottom: Dimensions.height30,
+          left: Dimensions.width20,
+          right: Dimensions.width20,
+        ),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(Dimensions.radius20 * 2),
+            topLeft: Radius.circular(Dimensions.radius20 * 2),
+          ),
+          color: AppColors.buttonBackgorundColor,
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.only(
+                top: Dimensions.height20,
+                bottom: Dimensions.height20,
+                left: Dimensions.width20,
+                right: Dimensions.width20,
+              ),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(Dimensions.radius20),
+                  color: Colors.white),
               child: Row(
                 children: <Widget>[
-                  // Button1
-
-                  // Button2
-                  ElevatedButton(
-                      onPressed: () {}, child: const Text("Add To Cart"))
+                  const Icon(
+                    Icons.remove,
+                    color: AppColors.signColor,
+                  ),
+                  SizedBox(width: Dimensions.width10 / 2),
+                  BigText(text: "0"),
+                  SizedBox(width: Dimensions.width10 / 2),
+                  const Icon(
+                    Icons.add,
+                    color: AppColors.signColor,
+                  ),
                 ],
               ),
             ),
-          )
-        ],
+            Container(
+              padding: EdgeInsets.only(
+                top: Dimensions.height20,
+                bottom: Dimensions.height20,
+                left: Dimensions.width20,
+                right: Dimensions.width20,
+              ),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(Dimensions.radius20),
+                color: AppColors.mainColor,
+              ),
+              child: BigText(text: "\$10 | Add to Cart", color: Colors.white),
+            )
+          ],
+        ),
       ),
     );
   }

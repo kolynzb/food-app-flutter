@@ -2,6 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:storee/utils/colors.dart';
 import 'package:storee/utils/dimension.dart';
+import 'package:storee/widgets/app_Colum_desc.dart';
 import 'package:storee/widgets/big_text.dart';
 import 'package:storee/widgets/icon_n_text_widget.dart';
 import 'package:storee/widgets/small_text.dart';
@@ -139,32 +140,35 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                         left: Dimensions.width10,
                         right: Dimensions.width10,
                       ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          BigText(text: "Nutritious Munanasi In China "),
-                          SizedBox(height: Dimensions.height10),
-                          SmallText(text: "Lorem Ipsum Dfdfdf Efgfgfg"),
-                          SizedBox(height: Dimensions.height10),
-                          Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
-                                IconNTextWidget(
-                                    icon: Icons.circle_sharp,
-                                    text: "Normal",
-                                    iconColor: AppColors.iconColor1),
-                                IconNTextWidget(
-                                    icon: Icons.location_on,
-                                    text: "1.7km",
-                                    iconColor: AppColors.mainColor),
-                                IconNTextWidget(
-                                    icon: Icons.access_time_rounded,
-                                    text: "32min",
-                                    iconColor: AppColors.iconColor2),
-                              ]),
-                        ],
+                      child: const AppColumnFoodDesc(
+                        Title: "Iced Munanasi",
                       ),
+                      // child: Column(
+                      //   crossAxisAlignment: CrossAxisAlignment.start,
+                      //   mainAxisAlignment: MainAxisAlignment.center,
+                      //   children: [
+                      //     BigText(text: "Nutritious Munanasi In China "),
+                      //     SizedBox(height: Dimensions.height10),
+                      //     SmallText(text: "Lorem Ipsum Dfdfdf Efgfgfg"),
+                      //     SizedBox(height: Dimensions.height10),
+                      //     Row(
+                      //         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      //         children: const [
+                      //           IconNTextWidget(
+                      //               icon: Icons.circle_sharp,
+                      //               text: "Normal",
+                      //               iconColor: AppColors.iconColor1),
+                      //           IconNTextWidget(
+                      //               icon: Icons.location_on,
+                      //               text: "1.7km",
+                      //               iconColor: AppColors.mainColor),
+                      //           IconNTextWidget(
+                      //               icon: Icons.access_time_rounded,
+                      //               text: "32min",
+                      //               iconColor: AppColors.iconColor2),
+                      //         ]),
+                      //   ],
+                      // ),
                     ),
                   ),
                 )

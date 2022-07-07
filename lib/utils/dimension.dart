@@ -26,6 +26,7 @@ class Dimensions {
 
 // Dynamic Font Size
   static double font20 = screenHeight / 42.2;
+  static double font26 = screenHeight / 32.46;
 
 // Dyanamic Border Radius
   static double radius15 = screenHeight / 56.27;
@@ -42,5 +43,8 @@ class Dimensions {
 
 // Popular Food Details
   static double popularFoodDetailImgSize = screenHeight / 2.41; // 350
+
+// bottom height
+  static double bottomHeightBar = screenHeight / 7.03; // 120
 
 }
